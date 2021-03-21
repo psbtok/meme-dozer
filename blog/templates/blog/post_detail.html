@@ -1,0 +1,50 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/single-form-page.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+{% endblock links %}
+{% block content %}
+  <div class="content-wrapper">
+    <article class="content-section">
+      <div class="metadata">
+        <div class="user-info">
+          <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}" alt="">
+          <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
+        </div>
+        <small class="text-muted">{{ object.date_posted|date:"h:m F d, Y" }}</small>
+      </div>
+      {% if object.post_pic %}
+        <img style="background-color: black;" class="photothumb" src="{{ object.post_pic.url }}">
+      {% endif %}
+      <div class="text-block">
+        <h2 class="article-title">{{ object.title }}</h2>
+        {% if object.content %}
+          <hr>
+          <p class="article-content">{{ object.content }}</p>
+        {% endif %}
+      </div>
+        <div class="media-body">
+          <div class="button-container">
+              {% if user.is_authenticated %}
+                {% if object.id in liked_ids %}
+                  <button class="btn btn-danger btn-sm mt-1 mb-1 like-btn" data-href="{{ object.get_api_like_url }}?post_id={{ object.id }}" data-likes="{{ object.total_likes }}">{{ object.total_likes }} likes</button>
+                {% else %}
+                  <button class="btn btn-primary btn-sm mt-1 mb-1 like-btn" data-href="{{ object.get_api_like_url }}?post_id={{ object.id }}" data-likes="{{ object.total_likes }}">{{ object.total_likes }} likes</button>
+                {% endif %}
+              {% else %}
+                <span class="btn btn-primary btn-sm mt-1 mb-1">{{ object.total_likes }} likes</span>
+                <p>login to like</p>
+              {% endif %}
+              {% if object.author == user %}
+              <div class="">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+              </div>
+              {% endif %}
+          </div>
+        <hr>
+      </div>
+    </article>
+  </div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+*{
+  color: white;
+}
+
+main{
+  background-color: inherit !important;
+  margin-top: 50px;
+}
+.content-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 10%;
+}
+.media{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+form{
+  margin-left: 150px;
+  max-width: 400px;
+}
+.media *{
+  margin-bottom: 10px;
+  text-align: center;
+}
+.media img{
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
+.clearablefileinput{
+    display: none;
+}

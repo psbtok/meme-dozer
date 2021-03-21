@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    {% block links %}{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% if title %}
+        <title>Django Blog - {{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo-container">
+          <a class="logo" href="{% url 'blog-home' %}">Memedozer.</a>
+          <span>Share <span class="attention-word">your</span> meme❤️</span>
+        </div>
+        <ul class="menu">
+            <li class="about-li"><a id="about-btn" href="/about">About</a></li>
+          {% if user.is_authenticated %}
+            <li><a id="new-post-btn" href="{% url 'post-create' %}">New post</a></li>
+            <li><a id="profile-btn" href="{% url 'profile' %}">Profile</a></li>
+            <li><a id="log-out-btn" href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+            <li><a id="log-in-btn" href="{% url 'login' %}">Log In</a></li>
+            <li><a id="register-btn" href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <main>
+          <!-- {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %} -->
+          {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <div class="created-by">
+        <div class="">
+          <span>Created by <a href="https://github.com/petosbratok">petosbratok</a></span>
+          <br>
+          <span>Full-stack on daily basis</span>
+        </div>
+        <p>Contact me: <a href="mailto:opletaevpetr@mail.ru">opletaevpetr@mail.ru</a> </p>
+      </div>
+      <div class="flexing-container">
+        <div class="technologies">
+          <p>What I use:</p>
+          <ul>
+            <li>HTML</li>
+            <li>JS</li>
+            <li>CSS</li>
+            <li>Python</li>
+            <li>Django</li>
+            <li>SQLite</li>
+          </ul>
+        </div>
+        <div class="can-do">
+          <p>What I do:</p>
+          <ul>
+            <li>Web design</li>
+            <li>Front-end development</li>
+            <li>Back-end development</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <style media="screen">
+
+  </style>
+</html>
+{% block scripts %}
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="{% static 'blog/script.js' %}">
+</script>

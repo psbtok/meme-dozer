@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block links %}
+  <link rel="stylesheet" href="{% static '/blog/about.css' %}">
+{% endblock links %}
+{% block content %}
+  <div class="content-section">
+    <div class="introduction">
+      <h1>meme what? dozer.</h1>
+      <article>
+        <p>"memedozer." is not just a social network.</p>
+        <p>it's like bulldozer.</p>
+        <p>but memes...</p>
+        <p>powerful and strong.</p>
+        <p>or like heroin.</p>
+        <p>get your first dose today!</p>
+      </article>
+    </div>
+    <div class="common-questions">
+      <h1>Common questions:</h1>
+      <div class="question-container">
+        <h2>Actually, what is this website?</h2>
+        <p>This is a meme-dedicated censorship-free social network.</p>
+      </div>
+      <div class="question-container">
+        <h2>Did you do this all by yourself?</h2>
+        <p>Yea, sounds about right.</p>
+      </div>
+      <div class="question-container">
+        <h2>Are you up for hire?</h2>
+        <p>Of course! I will consider any reasonable offer. Links are down below!</p>
+      </div>
+    </div>
+  </div>
+  <img src="/media/other_media/bulldozer_2.png" alt="">
+{% endblock content %}

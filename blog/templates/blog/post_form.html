@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+  <div class="content-section">
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">New post</legend>
+              <div id="div_id_title" class="form-group">
+                <label for="id_title" class=" requiredField">
+                    Title<span class="asteriskField">*</span>
+                </label>
+                <div class="">
+                    <input type="text" name="title" maxlength="100" class="textinput textInput form-control" required="" id="id_title" autocomplete="off">
+                </div>
+              </div>
+              {{ form.content|as_crispy_field }}
+              <div class="button-container">
+                <label for="id_post_pic" class="btn btn-outline-info">
+                    <input onchange="loadFile(event)" style="display: none;" type="file" name="post_pic" accept="image/*" class="clearablefileinput form-control-file" id="id_post_pic">
+                  Attach picture
+                </label>
+                <div class="form-group">
+                  <button class="btn btn-outline-success" type="sumbit">Post</button>
+                </div>
+              </div>
+          </fieldset>
+      </form>
+      <div class="img-container">
+        <img src="/media/other_media/new_post.png" id="output">
+      </div>
+  </div>
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/post_create.css' %}">
+{% endblock content %}
