@@ -1,2 +1,1 @@
-web:gunicorn django_dozer.wsgi
-heroku ps:scale web=1
+web:gunicorn django_dozer.wsgi:get
