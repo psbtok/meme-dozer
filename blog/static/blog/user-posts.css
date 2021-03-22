@@ -11,7 +11,6 @@
   background-attachment: fixed;
 }
 .content-section{
-  min-height: calc(100vh - 170px);
   background-color: #101010;
   margin: 0;
   width: 50%;
@@ -25,10 +24,16 @@
 .article-img{
   height: 25px;
 }
+.img-container{
+  display: flex;
+  justify-content: center;
+}
 .photothumb{
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
-  max-height: 350px !important;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0) !important;
+  max-height: 400px !important;
 }
 .metadata{
   /* height: 50px; */

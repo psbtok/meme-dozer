@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.db.models import Count
 from django.views.generic import (
     ListView,
     DetailView,

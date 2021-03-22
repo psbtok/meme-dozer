@@ -43,3 +43,14 @@
 .button-container{
   padding: 0 10px;
 }
+.img-container{
+  display: flex;
+  justify-content: center;
+}
+.photothumb{
+  object-fit: contain;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(255, 0, 0, 0) !important;
+  max-height: 400px !important;
+}
