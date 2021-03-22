@@ -54,14 +54,12 @@ function handle_likes(){
     success: function(data){
       var newLikes;
       console.log(data)
+      this_.toggleClass("btn-primary")
+      this_.toggleClass("btn-success")
       if (data.liked){
         newLikes = addLike
-        this_.addClass("btn-danger")
-        this_.removeClass("btn-primary")
       } else {
         newLikes = removeLike
-        this_.addClass("btn-primary")
-        this_.removeClass("btn-danger")
       }
       updateText(this_, newLikes)
       this_.attr("data-likes", newLikes)
