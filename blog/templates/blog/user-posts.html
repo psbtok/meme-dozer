@@ -78,15 +78,16 @@
     var posts = document.getElementsByClassName("content-section");
     posts_count = Array.prototype.slice.call(posts).length;
     console.log(posts_count)
-    if (posts_count == 1){
+    if (posts_count < 2){
       for(var i = 0; i < posts_count; i++){
-        posts[i].style.minHeight = "calc(100vh - 170px)";
+        posts[i].style.minHeight = "calc(100vh - 180px)";
+        document.getElementsByClassName("content-wrapper")[0].style.backgroundAttachment = "scroll";
         console.log(posts[i])
       }
     }
     else if (posts_count == 2){
       for(var i = 0; i < posts_count; i++){
-        posts[i].style.minHeight = "calc(65vh - 170px)";
+        posts[i].style.minHeight = "calc(65vh - 180px)";
         console.log(posts[i])
       }
     }
