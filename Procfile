@@ -1,1 +1,2 @@
-web:gunicorn django_dozer.wsgi:get
+web:gunicorn django_dozer.wsgi
+web:gunicorn django_dozer.wsgi
