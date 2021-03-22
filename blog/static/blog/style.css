@@ -273,6 +273,3 @@ label{
   flex-direction: row;
   justify-content: space-between;
 }
-.button-container *{
-  min-width: 100px;
-}

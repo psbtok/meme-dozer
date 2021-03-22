@@ -1,39 +1,78 @@
 {% extends "blog/base.html" %}
+{% load static %}
+{% block links %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/single-form-page.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/user-posts.css' %}">
+{% endblock links %}
 {% block content %}
-<h1 class="mb-3">Post by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
-  {% for post in posts %}
-      <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
-        <div class="media-body">
-          <div class="article-metadata">
+  <div class="content-wrapper infinite-container">
+    {% for post in posts %}
+      <article class="content-section infinite-item">
+        <div class="metadata">
+          <div class="user-info">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">    <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt=""></a>
             <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
           </div>
-          <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-          <p class="article-content">{{ post.content }}</p>
+          <small class="text-muted">{{ post.date_posted|date:"h:m F d, Y" }}</small>
+        </div>
+        {% if post.post_pic %}
+          <a href="{% url 'post-detail' post.id %}"><img style="background-color: black;" class="photothumb" src="{{ post.post_pic.url }}"></a>
+        {% endif %}
+        <div class="text-block">
+          <a href="{% url 'post-detail' post.id %}"><h2 class="article-title">{{ post.title }}</h2></a>
+          {% if post.content %}
+            <hr>
+            <p class="article-content">{{ post.content }}</p>
+          {% endif %}
+        </div>
+          <div class="media-body">
+            <div class="button-container">
+                {% if user.is_authenticated %}
+                  {% if post.id in liked_ids %}
+                    <button class="btn btn-success btn-sm mt-1 mb-1 like-btn" data-href="{{ post.get_api_like_url }}?post_id={{ post.id }}" data-likes="{{ post.total_likes }}">{{ post.total_likes }} likes</button>
+                  {% else %}
+                    <button class="btn btn-primary btn-sm mt-1 mb-1 like-btn" data-href="{{ post.get_api_like_url }}?post_id={{ post.id }}" data-likes="{{ post.total_likes }}">{{ post.total_likes }} likes</button>
+                  {% endif %}
+                {% else %}
+                  <span class="btn btn-primary btn-sm mt-1 mb-1">{{ post.total_likes }} likes</span>
+                  <p>login to like</p>
+                {% endif %}
+                {% if post.author == user %}
+                <div class="">
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">Update</a>
+                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">Delete</a>
+                </div>
+                {% endif %}
+            </div>
         </div>
       </article>
-  {% endfor %}
+      {% endfor %}
+    </div>
 
-  {% if is_paginated %}
-
-    {% if page_obj.has_previous %}
-      <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-    {% endif %}
-
-    {% for num in page_obj.paginator.page_range %}
-      {% if page_obj.number == num %}
-        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+    {% if is_paginated %}
+      {% if page_obj.has_next %}
+        <a style="display: none;" class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">next</a>
       {% endif %}
-    {% endfor %}
 
-    {% if page_obj.has_next %}
-      <a class="btn btn-outline-info mb-4" href="?page= {{ page_obj.next_page_number }}">Next</a>
-      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
     {% endif %}
+  {% block scripts %}
+  <script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+  <script src="/static/js/infinite.min.js"></script>
+  <script>
+      var infinite = new Waypoint.Infinite({
+          element: $('.infinite-container')[0],
 
-  {% endif %}
+          offset: 'bottom-in-view',
+
+          onBeforePageLoad: function () {
+              $('.loading').show();
+          },
+          onAfterPageLoad: function () {
+              resizeAllGridItems()
+              $('.loading').hide();
+          }
+
+      });
+  </script>
+  {% endblock scripts %}
 {% endblock content %}

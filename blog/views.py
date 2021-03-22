@@ -63,6 +63,16 @@ class UserPostListView(ListView):
     context_object_name = 'posts'
     paginate_by = 8
 
+    def get_context_data(self, **kwargs):
+        context = super(UserPostListView, self).get_context_data(**kwargs)
+        posts = Post.objects.all()
+        liked_ids = []
+        for post in posts:
+            if post.likes.filter(id=self.request.user.id).exists():
+                liked_ids.append(post.id)
+        context['liked_ids'] = liked_ids
+        return context
+
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
