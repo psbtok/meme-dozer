@@ -21,7 +21,9 @@
   padding: 0 50px;
 }
 .article-img{
-  height: 25px;
+  height: 70px;
+  width: 70px;
+  object-fit: cover !important;
 }
 .photothumb{
   object-fit: cover;
