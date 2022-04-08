@@ -1,4 +1,4 @@
-main{
+ main{
   padding: 0;
   margin: 0;
   padding-top: 1px;
@@ -68,6 +68,7 @@ header .logo-container{
   padding-left: 35px;
   /* background: linear-gradient(60deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 4%, rgba(255,255,255,1) 4%, rgba(255,251,244,1) 6%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 7%, rgba(255,251,244,1) 7%, rgba(253,187,45,1) 74%, rgba(253,187,45,1) 95%, rgba(0,0,0,0) 95%); */
   background: linear-gradient(15deg, rgba(255,251,244,1) 0%, rgba(253,187,45,1) 74%, rgba(253,187,45,1) 100%);
+  /* background: black; */
   /* border-right: solid; */
   /* border-left: 3px solid white; */
   /* border-right: 3px solid white; */
@@ -118,6 +119,11 @@ header .logo-container{
 }
 #about-btn:hover{
   background: rgba(111,212,255,1);
+  border-color: white;
+}
+#home-btn:hover{
+  color: white;
+  background: #ff4283;
   border-color: white;
 }
 #new-post-btn:hover{
@@ -273,4 +279,9 @@ label{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.btn{
+  /* height: 25px; */
+  margin: 10px 0 !important;
+  margin-bottom: 15px !important;
 }

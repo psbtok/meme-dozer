@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/media.css' %}">
     {% block links %}{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     {% if title %}
@@ -28,7 +29,8 @@
           <span>Share <span class="attention-word">your</span> meme❤️</span>
         </div>
         <ul class="menu">
-            <li class="about-li"><a id="about-btn" href="/about">About</a></li>
+            <li id="about-li" class="about-li"><a id="about-btn" href="/about">About</a></li>
+            <li id="home-li" class="home-li"><a id="home-btn" href="/">Home</a></li>
           {% if user.is_authenticated %}
             <li><a id="new-post-btn" href="{% url 'post-create' %}">New post</a></li>
             <li><a id="profile-btn" href="{% url 'profile' %}">Profile</a></li>
