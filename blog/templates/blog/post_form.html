@@ -1,6 +1,10 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/post_create.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/post-form-media.css' %}">
+{% endblock links %}
 {% block content %}
   <div class="content-section">
       <form method="post" enctype="multipart/form-data">
@@ -24,5 +28,4 @@
         <img src="/media/other_media/new_post.png" id="output">
       </div>
   </div>
-  <link rel="stylesheet" type="text/css" href="{% static 'blog/post_create.css' %}">
 {% endblock content %}

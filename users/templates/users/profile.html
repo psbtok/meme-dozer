@@ -1,6 +1,10 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% block links%}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/profile.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/profile-media.css' %}">
+{% endblock links %}
 {% block content %}
   <div class="content-section">
     <div class="media">
@@ -28,5 +32,4 @@
         </fieldset>
     </form>
 </div>
-<link rel="stylesheet" type="text/css" href="{% static 'blog/profile.css' %}">
 {% endblock content %}

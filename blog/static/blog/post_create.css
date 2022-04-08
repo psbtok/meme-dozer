@@ -13,6 +13,9 @@ textarea{
 header ul a{
   border-bottom: 1px solid grey;
 }
+.btn{
+  height: 38px !important;
+}
 .content-section{
   margin: 30px 80px;
   justify-content: space-around;

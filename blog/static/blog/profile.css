@@ -31,6 +31,9 @@ form{
   height: 200px;
   width: 200px;
 }
+.btn-outline-info{
+  height: 38px !important;
+}
 .clearablefileinput{
     display: none;
 }

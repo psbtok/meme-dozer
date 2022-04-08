@@ -17,6 +17,18 @@
   nav{
     margin: 0 !important;
   }
+  footer{
+    flex-direction: column;
+    min-height: 50vh;
+  }
+  .created-by, .flexing-container{
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 30px;
+  }
+  .technologies{
+    margin-right: 0px !important;
+  }
 }
 
 @media (max-width: 650px) {
@@ -34,8 +46,43 @@
     padding-left: 6px;
     font-size: 14px;
   }
-  .about-li{}
+  .menu li #about-btn{
+    width: 30px !important;
+  }
+  .grid{
+    margin: 15px !important;
+  }
+}
+
+@media (max-width: 400px) {
   footer{
-    display: none;
+    min-height: 70vh;
+  }
+  .flexing-container{
+    flex-direction: column;
+    padding: 0 15px;
+  }
+  .technologies, .can-do{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .created-by{
+    text-align: center;
+  }
+  .technologies p, .can-do p{
+    padding-right: 10px;
+    width: 34%;
+  }
+  .technologies ul{
+    width: 100%;
+    columns: 2;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .flexing-container ul{
+    width: 200px;
   }
 }

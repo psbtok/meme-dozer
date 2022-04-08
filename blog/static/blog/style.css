@@ -1,9 +1,10 @@
- main{
+main{
   padding: 0;
   margin: 0;
   padding-top: 1px;
   width: 100%;
   color: #EEE;
+  background-attachment: fixed;
 }
 header{
   box-sizing: border-box;
@@ -160,15 +161,22 @@ header .logo-container{
 }
 
 /* Non-grid specific CSS */
+html{
+  background: rgb(0,64,80);
+  background-image: linear-gradient(0deg, rgba(0,64,80,1) 20%, rgba(26,34,53,1) 100%);
+  background-attachment: fixed;
+}
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  opacity: 1;
   color: #374046;
   color: #ddd;
-  background: linear-gradient(180deg, rgba(26, 34, 53, 1) 0%, #004050 80%);
-  background-attachment: fixed;
+  /* background-color: #004050; */
+  /* background-image: linear-gradient(180deg, rgba(26, 34, 53, 1) 0%, #004050 80%); */
+  background-color: rgba(0,0,0,0);
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1.15em;
   text-rendering: optimizeLegibility;
