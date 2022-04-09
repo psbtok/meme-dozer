@@ -26,8 +26,6 @@ SECRET_KEY = '4hsey2s&v-qwx)r6nwhr436)zrd%rd7!3nm^3#0we0r+rq4n-='
 DEBUG = False
 
 ALLOWED_HOSTS = ['*', 'peteropletaev.pythonanywhere.com']
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -110,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

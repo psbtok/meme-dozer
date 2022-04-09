@@ -22,7 +22,9 @@
             <hr style="margin-bottom: 3px">
             <div class="metadata">
               <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"h:m F d, Y" }}</small>
+              <small class="text-muted">{{ post.date_posted|date:"H:i F d, Y" }}</small>
+              <!-- <br> -->
+              <!-- <small class="text-muted">{{ post.date_posted }}</small> -->
             </div>
             <!-- <hr style="margin: 0"> -->
             <div class="button-container">
