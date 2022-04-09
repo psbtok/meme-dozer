@@ -1,0 +1,32 @@
+@media (max-width: 1100px) {
+  .content-section{
+    /* background-color: inherit; */
+    /* border: none; */
+    width: 60%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  html{
+    background: rgb(16, 16, 16);
+  }
+  body{
+    background: inherit;
+  }
+  .content-wrapper{
+    background: rgb(16, 16, 16);
+    background: linear-gradient(180deg, rgba(23,35,52,1) 20%, rgba(15,31,38,1) 50%, rgba(16,16,16,1) 100%);
+    background-attachment: fixed;
+  }
+  .content-section{
+    background-color: inherit;
+    border: none;
+    width: 90%;
+  }
+  .article-img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover !important;
+  }
+}

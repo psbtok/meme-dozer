@@ -1,0 +1,13 @@
+@media (max-width: 900px) {
+  .content-section{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main{
+    margin-top: 0;
+  }
+  form{
+    margin-left: 0;
+  }
+}
