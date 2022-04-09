@@ -122,4 +122,4 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return True if self.request.user == post.author else False
 
 def about(request):
-    return render(request, 'blog/about.html', {'title':'About'})
+    return render(request, 'blog/about_new.html', {'title':'About'})
