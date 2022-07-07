@@ -22,7 +22,7 @@ The first thing to do is to clone the repository:
 
 $ git clone [https://github.com/petosbratok/meme-dozer](https://github.com/petosbratok/meme-dozer)
 
-$ cd keeno
+$ cd meme-dozer
 
 Install Python and Pip.
 Install the dependencies:
@@ -38,5 +38,6 @@ $ python manage.py runserver
 Home page:  `http://127.0.0.1:8000/`<br>
 Profile: `http://127.0.0.1:8000/profile`<br>
 Posts of a certain user: `http://127.0.0.1:8000/user/<user_id>`<br>
-Certain post: `http://127.0.0.1:8000/post/<post_id>`
+Certain post: `http://127.0.0.1:8000/post/<post_id>` <br>
+About the website: `http://127.0.0.1:8000/about`
 
