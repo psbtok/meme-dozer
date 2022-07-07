@@ -1,5 +1,5 @@
 
-# Meme-dozer. A ticket for endless memories
+# Meme-dozer
 
 ## About
 Meme-dozer is django based twitter-like social network. 
