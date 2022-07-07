@@ -2,7 +2,7 @@
 # Meme-dozer
 
 ## About
-Meme-dozer is django based twitter-like social network. 
+Meme-dozer is django based twitter-like social network <br>
 Link: [peteropletaev.pythonanywhere.com](http://peteropletaev.pythonanywhere.com) (**adblock recommended**)
 
 Implemented features:
